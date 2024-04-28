@@ -14,6 +14,14 @@ public class GameManager : MonoBehaviour
         Application.targetFrameRate = 60;
         Pause();
     }
+    public void CloseGame()
+    {
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
+    }
     public void Play()
     {
         score = 0;
